@@ -11,21 +11,11 @@ class NxTextFieldStatus extends NxFieldStatus<String> {
 }
 
 class NxTextField extends StatefulWidget {
-  final String label;
   final String id;
-  final bool readOnly;
-  final bool showCursor;
-  final FocusNode focusNode;
-  final void Function() onTap;
 
   NxTextField({
     Key key,
     @required this.id,
-    this.label,
-    this.onTap,
-    this.readOnly = false,
-    this.showCursor = true,
-    this.focusNode,
   }) : super(key: key);
 
   @override
@@ -46,25 +36,7 @@ class _NxTextFieldState extends State<NxTextField> {
         final NxTextFieldStatus status = form.getStatus(widget.id);
         controller.text = status.value;
 
-        return Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            TextFormField(
-              readOnly: widget.readOnly,
-              showCursor: widget.showCursor,
-              onTap: widget.onTap,
-              focusNode: widget.focusNode,
-              controller: controller,
-              onChanged: (v) => status.value = v,
-              decoration: InputDecoration(
-                labelText: widget.label,
-                border: OutlineInputBorder(),
-                isDense: true,
-              ),
-            ),
-          ],
-        );
+        return Text('Your component goes here');
       },
     );
   }
